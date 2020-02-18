@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: oip-sms
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: oip-sms
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oip-sms
+spec:
+  selector:
+    matchLabels:
+      app: oip-sms
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: oip-sms
+    spec:
+      containers:
+      - name: oip-sms
+        image: socialalphaoip/sms-microservice:dev
+        ports:
+        - containerPort: 8080
+---
