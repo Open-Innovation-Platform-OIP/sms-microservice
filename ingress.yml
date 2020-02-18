@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - oip-sms-dev.k8s.jaagalabs.com
+    - oip-sms-dev.oip.dev.code-alpha.org
     secretName: oip-sms-dev-tls
   rules:  
-  - host: oip-sms-dev.k8s.jaagalabs.com
+  - host: oip-sms-dev.oip.dev.code-alpha.org
     http:
       paths:
       - backend:
